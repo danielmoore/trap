@@ -3,6 +3,8 @@
 trap is simply the most dead-simple test framework you can pick up. It builds and simplifies
 the already simple structure of of `node-tap` or `tape`, but is extensible like `mocha`.
 
+![Output Sample][output-sample]
+
 ## What do I need to know?
 
 Two things: `test`, and `t.cb`. It's really that simple. You can use the assertion framework
@@ -50,3 +52,5 @@ libraries so this will be even easier.
 ## Examples
 
 Check out the examples folder.
+
+[output-sample]: https://www.evernote.com/shard/s219/sh/fe24811a-5dad-4bce-94c1-360f2a7ad7b6/4674dfbf9231a0b14db31c631243da00/res/ac8f0327-dba1-42ea-830f-9dc9fb6cf6af/skitch.png
