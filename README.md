@@ -32,11 +32,7 @@ all of your callbacks with `t.cb`.
 ```javascript
 var test = require('trap').test;
 
-<<<<<<< HEAD
 test('Async stuff', function (t) {
-=======
-test('Async stuff, function (t) {
->>>>>>> b809552ee02e7729ad18fa4030e518920b99ae64
   setTimeout(t.cb(function() {
     t.ok(true, 'This is still part of the "Async stuff" test!');
   }), 100);
