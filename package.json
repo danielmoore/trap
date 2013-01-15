@@ -1,0 +1,19 @@
+{
+  "name": "trap",
+  "version": "0.1.0",
+  "description": "A simpler way to test your code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Daniel Moore",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "~0.1.5",
+    "proxyquire": "~0.4.0"
+  },
+  "dependencies": {
+    "colors": "~0.6.0-1"
+  }
+}
