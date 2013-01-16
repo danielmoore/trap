@@ -3,6 +3,10 @@
 trap is simply the most dead-simple test framework you can pick up. It builds and simplifies
 the already simple structure of of `node-tap` or `tape`, but is extensible like `mocha`.
 
+Get started with
+
+    npm install trap
+
 ![Output Sample][output-sample]
 
 ## What do I need to know?
@@ -38,6 +42,34 @@ test('Async stuff', function (t) {
   setTimeout(t.cb(function() {
     t.ok(true, 'This is still part of the "Async stuff" test!');
   }), 100);
+});
+```
+
+#### Promises
+
+If you happen to prefer promises over callbacks, we support that, too! Instead of using
+`t.cb()`, perform all of your assertions in a `.then(...)` continuation and return a
+promise that encompasses all of the work. Trap will wait for your promise to finish before
+running the next test. If your promise fails (e.g. unhandled exception), trap will report
+that as an assertion failure.
+
+```javascript
+var test = require('trap').test;
+var Q = require('q'); // I'm using Q here, but you can use any promise-compliant library.
+
+test('Promise stuff', function(t) {
+  var firstFired, secondFired;
+
+  return Q.all([
+    Q.delay(100).then(function() {
+      firstFired = true;
+      t.ok(!secondFired, 'First comes first');
+    }),
+    Q.delay(150).then(function() {
+      secondFired = true;
+      t.ok(firstFired, 'Second comes second');
+    })
+  ]);
 });
 ```
 
