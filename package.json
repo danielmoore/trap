@@ -8,7 +8,7 @@
     "trap": "bin/trap.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/_runner"
   },
   "repository": {
     "type": "git",
