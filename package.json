@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "A simpler way to test your code.",
   "main": "index.js",
+  "bin": {
+    "node-trap": "bin/trap.js",
+    "trap": "bin/trap.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,6 +32,7 @@
     "q": "~0.8.12"
   },
   "dependencies": {
-    "colors": "~0.6.0-1"
+    "colors": "~0.6.0-1",
+    "optimist": "~0.3.5"
   }
 }

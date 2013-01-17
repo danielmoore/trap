@@ -81,8 +81,32 @@ you can just throw exceptions like you normally do, and those will be interprete
 assertion failures. Hopefully soon we can get plugins for all the major assertion
 libraries so this will be even easier.
 
+## Batch-Running Tests
+
+Trap has a command-line runner so you can run a whole suite of tests together. First, install trap globally:
+
+    npm install -g trap
+
+Then call trap like this:
+
+    node-trap [--config /path/to/config] [path1 [path2 [...]]]
+
+The paths may use glob features supported by [minimatch][]. `--config` defaults to `./test/trap.config.js`
+and `path1` defaults to `./test/**/*.trap.js`.
+
+Unfortunately, `trap` is already taken by a bash builtin, so overriding it by default would be a little
+presumptuous. But, if you happen to not care about the builtin `trap` function and you really hate typing
+`node-`, you can disable the builtin and simultaneously enable `trap` by calling:
+
+    enable -n trap
+
+If you change your mind, you can return to the usual `trap` functionality with:
+
+    enable trap
+
 ## Examples
 
 Check out the examples folder.
 
+[minimatch]: https://github.com/isaacs/minimatch
 [output-sample]: https://www.evernote.com/shard/s219/sh/fe24811a-5dad-4bce-94c1-360f2a7ad7b6/4674dfbf9231a0b14db31c631243da00/res/ac8f0327-dba1-42ea-830f-9dc9fb6cf6af/skitch.png
