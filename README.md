@@ -1,4 +1,4 @@
-# trap
+# trap [![build status](https://secure.travis-ci.org/danielmoore/trap.png)](http://next.travis-ci.org/danielmoore/trap)
 
 trap is simply the most dead-simple test framework you can pick up. It builds and simplifies
 the already simple structure of of `node-tap` or `tape`, but is extensible like `mocha`.
