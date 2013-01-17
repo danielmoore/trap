@@ -49,6 +49,8 @@ test('asynchronous math service', function (t) {
       sut.addAsync(result, 5, t.cb(function (result) {
         t.equal(result, 10, '2 + 3 + 5 = 10');
 
+        t.comment('This is a comment!');
+
         sut.addAsync(result, 3, t.cb(function (result) {
           t.equal(result, 13, '2 + 3 + 5 + 3 = 13');
         }));
