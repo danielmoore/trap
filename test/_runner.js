@@ -1,6 +1,7 @@
-var fs = require('fs')
+var glob = require('glob')
   , path = require('path');
 
-fs.readdirSync(__dirname)
-  .filter(function (x) { return path.extname(x) === '.js'; })
-  .forEach(function (x) { require('./' + x); });
+glob(path.join(__dirname, '**', '*.spec.js'), function(err, files) {
+  if(err) console.error(err);
+  else files.map(path.resolve).forEach(require);
+});
