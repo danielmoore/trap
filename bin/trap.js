@@ -4,7 +4,7 @@
 
 var fs = require('fs')
   , path = require('path')
-  , FileRunner = require('../lib/FileRunner')
+  , FileRunner = require('../lib/fileRunner')
   , config = require('../lib/config');
 
 var argv = require('optimist')
