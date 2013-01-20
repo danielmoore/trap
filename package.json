@@ -34,6 +34,7 @@
   "dependencies": {
     "optimist": "~0.3.5",
     "glob": "~3.1.14",
-    "ansicolors": "git://github.com/danielmoore/ansicolors.git#10f0401bc48623bc72a0688ee3a21da7cb5fef81"
+    "ansistyles": "~0.1.0",
+    "ansicolors": "~0.2.1"
   }
 }
