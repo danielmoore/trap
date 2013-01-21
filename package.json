@@ -1,6 +1,6 @@
 {
   "name": "trap",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "A simpler way to test your code.",
   "main": "index.js",
   "bin": {
@@ -32,7 +32,9 @@
     "q": "~0.8.12"
   },
   "dependencies": {
-    "colors": "~0.6.0-1",
-    "optimist": "~0.3.5"
+    "optimist": "~0.3.5",
+    "glob": "~3.1.14",
+    "ansistyles": "~0.1.0",
+    "ansicolors": "~0.2.1"
   }
 }

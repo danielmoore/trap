@@ -4,8 +4,9 @@
 
 var fs = require('fs')
   , path = require('path')
-  , FileRunner = require('../lib/FileRunner')
-  , config = require('../lib/config');
+  , FileRunner = require('../lib/fileRunner')
+  , config = require('../lib/config')
+  , existsSync = fs.existsSync || path.existsSync;
 
 var argv = require('optimist')
   .option('c', {
@@ -15,7 +16,7 @@ var argv = require('optimist')
   })
   .argv;
 
-if (fs.existsSync(argv.config)) require(argv.config);
+if (existsSync(argv.config)) require(argv.config);
 
 var runner = new FileRunner(argv._.length > 0 ? argv._ : ['./test/**/*.trap.js']);
 config.attachReporters(runner);
