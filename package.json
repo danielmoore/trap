@@ -1,6 +1,6 @@
 {
   "name": "trap",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A simpler way to test your code.",
   "main": "index.js",
   "bin": {
