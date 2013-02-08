@@ -5,20 +5,19 @@
 var fs = require('fs')
   , path = require('path')
   , FileRunner = require('../lib/fileRunner')
-  , config = require('../lib/config')
-  , existsSync = fs.existsSync || path.existsSync;
+  , configFactory = require('../lib/config');
 
 var argv = require('optimist')
   .option('c', {
     alias: 'config',
     usage: 'Path to config file.',
-    default: path.join(process.cwd(), 'test', 'trap.config.js')
+    default: path.join(process.cwd(), 'test', configFactory.defaultConfigFileName)
   })
   .argv;
 
-if (existsSync(argv.config)) require(argv.config);
+var config = configFactory.load(argv.config);
 
-var runner = new FileRunner(argv._.length > 0 ? argv._ : ['./test/**/*.trap.js']);
+var runner = new FileRunner(config, argv._.length > 0 ? argv._ : ['./test/{**,}/*.trap.js']);
 config.attachReporters(runner);
 
 runner.run();

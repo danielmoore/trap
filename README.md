@@ -76,7 +76,7 @@ test('Promise stuff', function(t) {
 ### Assertions
 
 To get the maximum prettiness and documentation of trap, customize
-`config.createAssertionWrapper` to wrap your favorite assertion library. Otherwise
+`config.createTextContext` to wrap your favorite assertion library. Otherwise
 you can just throw exceptions like you normally do, and those will be interpreted as
 assertion failures. Hopefully soon we can get plugins for all the major assertion
 libraries so this will be even easier.

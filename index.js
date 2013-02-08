@@ -1,11 +1,29 @@
-var config = require('./lib/config');
-var TestNode = require('./lib/testNode');
+'use strict';
+
+var configFactory = require('./lib/config')
+  , TestNode = require('./lib/testNode')
+  , path = require('path')
+  , fs = require('fs')
+  , existsSync = fs.existsSync || path.existsSync;
 
 var Runner = require('./lib/runner');
 
+function findConfigPath() {
+  var dir = path.dirname(module.parent.filename);
+  do {
+    var configPath = path.join(dir, 'trap.config.js');
+
+    if (existsSync(configPath))
+      return configPath;
+  } while (dir = path.dirname(dir));
+
+  return null;
+}
+
 function getRunner() {
   if (!Runner.current) {
-    var runner = Runner.current = new Runner();
+    var config = configFactory.load(findConfigPath());
+    var runner = Runner.current = new Runner(config);
     config.attachReporters(runner);
 
     process.nextTick(function () {
@@ -20,8 +38,12 @@ module.exports = {
   test: function (description, fn) {
     getRunner().enqueue(new TestNode(description, fn));
   },
-  config: config,
+  defaultConfig: require('./lib/defaultConfig'),
   core: {
-    TestNode: TestNode
+    Runner: Runner,
+    FileRunner: require('./lib/fileRunner'),
+    TestNode: TestNode,
+    defaultReporter: require('./lib/defaultReporter'),
+    defaultConig: require('./lib/defaultConfig')
   }
 };
