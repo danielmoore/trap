@@ -15,7 +15,9 @@ function findConfigPath() {
 
     if (existsSync(configPath))
       return configPath;
-  } while (dir = path.dirname(dir));
+
+    var parent = path.dirname(dir);
+  } while (parent !== dir && (dir = parent));
 
   return null;
 }
