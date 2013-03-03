@@ -1,0 +1,8 @@
+.gitignore
+
+travis.yml
+test/
+examples/
+
+*.idea
+*.iml
